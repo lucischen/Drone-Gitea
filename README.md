@@ -1,13 +1,14 @@
-# Drone X Gitea
+# Git X Drone
 
 ## Version
 - Drone: 0.8
-- Gitea: latest
+- Gitea: latest (x) -> tag issue
+- Gogs
 
 ## Setting Gitea config
 
 ```shell
-vim ./gitea/gitea/conf/app.ini
+vim ./gogs/gogs/conf/app.ini
 ```
 replace server config
 ```ini
