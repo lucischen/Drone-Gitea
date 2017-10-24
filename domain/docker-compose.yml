@@ -1,12 +1,13 @@
 version: '3'
 
 services:
-#    gitea-server:
-#        image: gitea/gitea:latest
-#        ports:
-#            - "${GITEA_PORT}:3000"
-#        volumes:
-#            - ./gitea:/data
+    nginx:
+        image: nginx
+        ports:
+            - "80:80"
+        restart: always
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf:ro
     gogs:
         image: gogs/gogs
         volumes:
@@ -42,7 +43,6 @@ services:
             - ./drone:/var/lib/drone
         restart: always
         depends_on:
-#            - gitea-server
             - gogs
         environment:
             - DRONE_OPEN=true
@@ -50,7 +50,6 @@ services:
             - DRONE_SECRET=${DRONE_SECRET}
             - DRONE_GITEA=true
             - DRONE_GITEA_URL=${DRONE_GITEA_URL}
-            # - DRONE_NETWORK=${GITEA_NETWORK}
     drone-agent:
         image: drone/agent:0.8
         command: agent
