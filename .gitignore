@@ -1,3 +1,6 @@
-drone/
-gitea/
-gogs/
+domain/drone/
+domain/gitea/
+domain/gogs/
+local/drone/
+local/gitea/
+local/gogs/
